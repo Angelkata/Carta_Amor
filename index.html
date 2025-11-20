@@ -19,8 +19,8 @@
 }
 body  {
 	font-family: "Quicksand", sans-serif;
-	background: linear-gradient(to bottom right, #ffecec, #fff5f5, #ffebeb);
-	color: #333;
+	background: linear-gradient(135deg, #fff4e6 0%, #ffe1c1 40%, #ffc48a 100%);
+	color: #4d2a16;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -31,6 +31,16 @@ body  {
 	overflow: hidden;
 	-webkit-tap-highlight-color: transparent;
   }
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background-image: radial-gradient(circle at 20% 20%, rgba(255, 140, 66, 0.25) 0, transparent 55%),
+		radial-gradient(circle at 80% 10%, rgba(255, 194, 138, 0.2) 0, transparent 50%),
+		radial-gradient(circle at 50% 90%, rgba(255, 125, 66, 0.18) 0, transparent 55%);
+	opacity: 0.8;
+	pointer-events: none;
+}
 .envelope {
 	--duration: 1000ms;
 
@@ -39,19 +49,19 @@ body  {
 
 	--envelope-width: 300px;
 	--envelope-height: 175px;
-	--envelope-clr-bg: #d14d44;
-	--envelope-clr-bg-side: #c24e46;
-	--envelope-clr-bg-bottom: #e15349;
-	--envelope-clr-bg-top: #d14d44;
-	--envelope-clr-txt: #fff;
+	--envelope-clr-bg: #ff8c42;
+	--envelope-clr-bg-side: #ff7b2d;
+	--envelope-clr-bg-bottom: #ffa868;
+	--envelope-clr-bg-top: #ff8c42;
+	--envelope-clr-txt: #fff7ef;
 
 	/*--envelope-transform: rotateY(0deg);*/
 	--envelope-transform-hover: rotateY(180deg);
 	--evelope-rotate-delay: calc(var(--duration) / 1);
 	--evelope-rotate-delay-hover: 0ms;
 
-	--letter-clr-bg: #fff;
-	--letter-clr-text: #c0392b;
+	--letter-clr-bg: #fffdfa;
+	--letter-clr-text: #ff7b2d;
 	--letter-font-size: 1rem;
 	--letter-delay: 0ms;
 	--letter-delay-hover: calc(
@@ -77,6 +87,8 @@ body  {
 	width: var(--envelope-width);
 	perspective: 1000px;
 	cursor: pointer;
+	border-radius: 18px;
+	box-shadow: 0 25px 50px rgba(194, 90, 22, 0.35);
 }
 
 @media (min-width: 720px) {
@@ -146,6 +158,8 @@ body  {
 	color: var(--envelope-clr-txt);
 	display: grid;
 	place-content: center;
+	border-radius: 16px;
+	box-shadow: inset 0 0 0 2px rgba(255, 231, 208, 0.4);
 }
 .envelope-front .postage-stamp {
 	position: absolute;
@@ -216,30 +230,36 @@ body  {
 	transition: var(--duration) ease-in-out;
 	transition-delay: var(--letter-delay);
 	overflow: hidden;
+	border-radius: 22px;
+	box-shadow: 0 18px 35px rgba(255, 124, 45, 0.28);
+	border: 2px solid rgba(255, 140, 66, 0.25);
 }
 .letter > svg.snowman {
 	width: var(--snowman-width);
 }
 .letter svg.bells {
 	width: var(--bells-width);
-	color: orange;
+	color: #ff8c42;
 }
 .letter p {
 	margin: 0;
 	font-weight: bold;
 	width: 32ch;
 	color: var(--letter-clr-text);
+	line-height: 1.5;
 }
 
 .custom-image {
     width: 100px;
     height: 100px;
-    object-fit: contain; 
+	object-fit: contain; 
+	filter: drop-shadow(0 8px 12px rgba(255, 140, 66, 0.35));
 }
 .custom-image2 {
     width: 150px;
     height: 150px;
-    object-fit: contain; 
+	object-fit: contain; 
+	filter: drop-shadow(0 12px 18px rgba(255, 140, 66, 0.28));
 }
 
 .highlight {
@@ -247,6 +267,7 @@ body  {
     margin-top: 10px; 
     font-size: 1.8rem;  
     font-weight: bold; 
+	color: #ff9d5c;
 }
 
 </style>
